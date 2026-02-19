@@ -34,4 +34,6 @@ if [ ! -f "$WP_PATH/wp-config.php" ]; then
     chown -R www-data:www-data "$WP_PATH"
 fi
 
-exec "$@"
+sed -i 's|^listen = .*|listen = 9000|' /etc/php/8.2/fpm/pool.d/www.conf
+
+exec php-fpm8.2 -F
