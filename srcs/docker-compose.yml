@@ -35,6 +35,71 @@ services:
     depends_on:
       - wordpress
     restart: always
+  
+  adminer:
+    build: ./requirements/bonus/adminer
+    container_name: adminer
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    restart: always
+    ports:
+      - "8081:8081"
+
+  redis:
+    build: ./requirements/bonus/redis
+    container_name: redis
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    restart: always
+  
+  static-site:
+    build: ./requirements/bonus/static-site
+    container_name: static-site
+    networks:
+      - inception
+    restart: always
+    ports:
+      - "8080:8080"
+  
+  ftp:
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    restart: always
+    environment:
+      - FTP_USER=${FTP_USER}
+      - FTP_PASS=${FTP_PASS}
+      - FTP_ROOT=/var/www/html
+      - FTP_PASV_MIN=21100
+      - FTP_PASV_MAX=21110
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - "21:21"
+      - "21100-21110:21100-21110"
+  
+  backup:
+    build: ./requirements/bonus/backup
+    container_name: backup
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    restart: always
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - WORDPRESS_DB_HOST=mariadb
+    volumes:
+      - db_backups:/backups
 
 volumes:
   mariadb_data:
@@ -49,6 +114,12 @@ volumes:
       type: none
       o: bind
       device: /home/marouane/data/wordpress
+  db_backups:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/marouane/data/backups
 
 networks:
   inception:
