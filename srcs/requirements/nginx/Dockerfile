@@ -4,8 +4,8 @@ RUN apt-get update && apt-get install -y nginx openssl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y netcat-openbsd \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y netcat-openbsd \
+#     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 RUN rm -f /etc/nginx/nginx.conf && rm -rf /etc/nginx/conf.d/*
