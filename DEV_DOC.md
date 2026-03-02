@@ -201,7 +201,7 @@ Persistent storage includes:
 All persistent data is stored on the host under:
 
 ```
-/home/msaadaou/data/
+/home/marouane/data/
 ```
 
 This ensures data survives container removal.

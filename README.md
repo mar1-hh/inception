@@ -172,18 +172,18 @@ Add (or ensure it exists):
 
 ### Persistent Data Directories
 
-This project uses Docker named volumes whose data is stored under /home/msaadaou/data on the host.
+This project uses Docker named volumes whose data is stored under /home/marouane/data on the host.
 
-* `/home/msaadaou/data/mysql`
-* `/home/msaadaou/data/wordpress`
-* `/home/msaadaou/data/backups`
+* `/home/marouane/data/mysql`
+* `/home/marouane/data/wordpress`
+* `/home/marouane/data/backups`
 
 You can create them manually (optional), but `make` already does it:
 
 ```bash
-mkdir -p /home/msaadaou/data/mysql
-mkdir -p /home/msaadaou/data/wordpress
-mkdir -p /home/msaadaou/data/backups
+mkdir -p /home/marouane/data/mysql
+mkdir -p /home/marouane/data/wordpress
+mkdir -p /home/marouane/data/backups
 ```
 
 ---
@@ -198,7 +198,7 @@ make
 
 This will:
 
-* Create the data directories under `/home/msaadaou/data`
+* Create the data directories under `/home/marouane/data`
 * Build all images
 * Start the containers in detached mode (`-d`)
 
@@ -245,9 +245,9 @@ make fclean
 * Delete the following directories:
 
 ```bash
-sudo rm -rf /home/msaadaou/data/mysql
-sudo rm -rf /home/msaadaou/data/wordpress
-sudo rm -rf /home/msaadaou/data/backups
+sudo rm -rf /home/marouane/data/mysql
+sudo rm -rf /home/marouane/data/wordpress
+sudo rm -rf /home/marouane/data/backups
 ```
 
 Use it only if you want a completely fresh setup.

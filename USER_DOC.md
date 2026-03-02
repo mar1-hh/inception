@@ -168,7 +168,7 @@ docker compose logs mariadb
 Database backups are automatically created and stored in:
 
 ```
-/home/msaadaou/data/backups
+/home/marouane/data/backups
 ```
 
 ---
