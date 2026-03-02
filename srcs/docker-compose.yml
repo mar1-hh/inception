@@ -107,19 +107,19 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/marouane/data/mysql
+      device: /home/msaadaou/data/mysql
   wordpress_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/marouane/data/wordpress
+      device: /home/msaadaou/data/wordpress
   db_backups:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/marouane/data/backups
+      device: /home/msaadaou/data/backups
 
 networks:
   inception:

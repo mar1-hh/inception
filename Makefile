@@ -2,7 +2,7 @@ NAME = inception
 COMPOSE = docker compose
 COMPOSE_FILE = srcs/docker-compose.yml
 
-DATA_DIR = /home/marouane/data
+DATA_DIR = /home/msaadaou/data
 MYSQL_DIR = $(DATA_DIR)/mysql
 WP_DIR = $(DATA_DIR)/wordpress
 BACKUP_DIR = $(DATA_DIR)/backups
