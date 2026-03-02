@@ -126,7 +126,7 @@ It provides isolation and secure inter-container communication, which aligns wit
 - Recommended by the subject  
 
 ✅ **Why named volumes were chosen:**  
-This project uses Docker named volumes whose data is stored under /home/msaadaou/data on the host.
+The subject explicitly requires Docker named volumes for persistent storage, and they provide better portability and isolation.
 
 ---
 
@@ -163,16 +163,16 @@ sudo nano /etc/hosts
 Add (or ensure it exists):
 
 ```bash
-127.0.0.1 msaadaou.42.fr
+127.0.0.1 .42.fr
 ```
 
-> Replace `msaadaou.42.fr` with the domain you configured in your NGINX/SSL setup.
+> Replace `.42.fr` with the domain you configured in your NGINX/SSL setup.
 
 ---
 
 ### Persistent Data Directories
 
-This project uses persistent directories on the host machine (created automatically by the Makefile):
+This project uses Docker named volumes whose data is stored under /home/msaadaou/data on the host.
 
 * `/home/msaadaou/data/mysql`
 * `/home/msaadaou/data/wordpress`
