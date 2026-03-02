@@ -1,11 +1,6 @@
 #!/bin/sh
 set -eu
 
-: "${MYSQL_DATABASE:?}"
-: "${MYSQL_USER:?}"
-: "${MYSQL_PASSWORD:?}"
-: "${WORDPRESS_DB_HOST:=mariadb}"
-
 mkdir -p /backups
 
 echo "Starting backup loop..."
